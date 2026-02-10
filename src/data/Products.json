@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Apple",
+    "image": "apple.png",
+    "price": 5.4,
+    "unit": "500g",
+    "rating": 4.9,
+    "onSale": false
+  },
+  {
+    "id": 2,
+    "name": "Berry",
+    "image": "berry.png",
+    "price": 6.2,
+    "unit": "400g",
+    "rating": 4.7,
+    "onSale": false
+  },
+  {
+    "id": 3,
+    "name": "Black Grape",
+    "image": "black graoe.png",
+    "price": 7.5,
+    "unit": "600g",
+    "rating": 4.8,
+    "onSale": true
+  },
+  {
+    "id": 4,
+    "name": "Blackberry",
+    "image": "blckberry.png",
+    "price": 7.99,
+    "unit": "500g",
+    "rating": 4.9,
+    "onSale": true
+  },
+  {
+    "id": 5,
+    "name": "Blueberry",
+    "image": "bluebrrynobg.png",
+    "price": 8.5,
+    "unit": "400g",
+    "rating": 4.9,
+    "onSale": false
+  },
+  {
+    "id": 6,
+    "name": "Cherry",
+    "image": "cherry.png",
+    "price": 9.0,
+    "unit": "500g",
+    "rating": 4.8,
+    "onSale": false
+  },
+  {
+    "id": 7,
+    "name": "Grapes",
+    "image": "grapes.png",
+    "price": 6.8,
+    "unit": "700g",
+    "rating": 4.7,
+    "onSale": false
+  },
+  {
+    "id": 8,
+    "name": "Guava",
+    "image": "guvava.png",
+    "price": 4.5,
+    "unit": "500g",
+    "rating": 4.6,
+    "onSale": true
+  },
+  {
+    "id": 9,
+    "name": "Kiwi",
+    "image": "kiwi.png",
+    "price": 7.2,
+    "unit": "400g",
+    "rating": 4.8,
+    "onSale": false
+  },
+  {
+    "id": 10,
+    "name": "Lemon",
+    "image": "lemon.png",
+    "price": 3.5,
+    "unit": "500g",
+    "rating": 4.5,
+    "onSale": false
+  },
+  {
+    "id": 11,
+    "name": "Mango",
+    "image": "mango.png",
+    "price": 8.99,
+    "unit": "600g",
+    "rating": 4.9,
+    "onSale": false
+  },
+  {
+    "id": 12,
+    "name": "Orange",
+    "image": "orange.png",
+    "price": 5.8,
+    "unit": "500g",
+    "rating": 4.7,
+    "onSale": false
+  },
+  {
+    "id": 13,
+    "name": "Peaches",
+    "image": "peaches.png",
+    "price": 6.5,
+    "unit": "500g",
+    "rating": 4.8,
+    "onSale": false
+  },
+  {
+    "id": 14,
+    "name": "Red Berry",
+    "image": "redberry.png",
+    "price": 7.3,
+    "unit": "400g",
+    "rating": 4.8,
+    "onSale": false
+  },
+  {
+    "id": 15,
+    "name": "Strawberry",
+    "image": "strawwberry.png",
+    "price": 7.99,
+    "unit": "500g",
+    "rating": 4.9,
+    "onSale": true
+  },
+  {
+    "id": 16,
+    "name": "Tomato",
+    "image": "tomato.png",
+    "price": 4.2,
+    "unit": "500g",
+    "rating": 4.6,
+    "onSale": false
+  },
+  {
+    "id": 17,
+    "name": "Watermelon",
+    "image": "watermelonn.png",
+    "price": 12.5,
+    "unit": "5kg",
+    "rating": 4.9,
+    "onSale": false
+  },
+  {
+    "id": 18,
+    "name": "pomegranate",
+    "image": "pomo.png",
+    "price": 10.5,
+    "unit": "2.5kg",
+    "rating": 4.9,
+    "onSale": true
+  },
+  {
+    "id": 19,
+    "name": "pineapple",
+    "image": "pineapple.png",
+    "price": 15.5,
+    "unit": "5kg",
+    "rating": 4.9,
+    "onSale": false
+  },
+  {
+    "id": 20,
+    "name": "Dragon fruit",
+    "image": "dragon-fruit.png",
+    "price": 8.5,
+    "unit": "2kg",
+    "rating": 4.8,
+    "onSale": true
+  }
+]

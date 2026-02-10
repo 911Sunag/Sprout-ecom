@@ -1,7 +1,11 @@
 import { Search, ShoppingBag } from "lucide-react";
 import sproutLogo from "../assets/logooo.png";
+import { useSelector } from "react-redux";
+import type { RootState } from "../store/store";
 
 const Navbar = () => {
+  const cartCount = useSelector((state: RootState) => state.cart.totalItems);
+
   return (
     <nav className="flex items-center justify-between w-full py-5">
       <div className="flex items-center space-x-2">
@@ -13,7 +17,7 @@ const Navbar = () => {
       </div>
       <button className="flex items-center justify-center space-x-2 bg-white px-3 py-2 rounded-xl cursor-pointer active:scale-98">
         <ShoppingBag size={18}/>
-        <span className="font-semibold tracking-wide">Cart: {8}</span>
+        <span className="font-semibold tracking-wide">Cart: {cartCount}</span>
       </button>
     </nav>
   );
