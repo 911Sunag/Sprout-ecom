@@ -1,42 +1,31 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import type { RootState } from '../store/store';
-
-const parseToGrams = (unit?: string) => {
-  if (!unit) return 0;
-  const u = unit.toLowerCase().trim();
-  const num = parseFloat(u.replace(/[^0-9.]/g, '')) || 0;
-  if (u.includes('kg')) return num * 1000;
-  return num; // assume grams
-};
+import { setNotification } from '../store/cartSlice';
 
 const BottomNotification = () => {
-  const cartItems = useSelector((s: RootState) => s.cart.items);
-  const products = useSelector((s: RootState) => s.products.items);
-  const [visible, setVisible] = useState(false);
+  const notification = useSelector((state: RootState) => state.cart.notification);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const totalGrams = cartItems.reduce((sum, it) => {
-      const prod = products.find(p => p.id === it.id);
-      if (!prod) return sum;
-      const grams = parseToGrams(prod.unit);
-      return sum + grams * it.quantity;
-    }, 0);
+    if (notification) {
+      const timer = setTimeout(() => {
+        dispatch(setNotification(null));
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [notification, dispatch]);
 
-    const totalKg = totalGrams / 1000;
-    setVisible(totalKg > 5);
-  }, [cartItems, products]);
-
-  if (!visible) return null;
+  if (!notification) return null;
 
   return (
-    <div className="fixed left-1/2 -translate-x-1/2 bottom-6 z-50">
-      <div className="bg-white shadow-lg rounded-full px-5 py-3 flex items-center space-x-4">
-        <div className="font-bold text-sprout-red">Daily limit reached</div>
-        <div className="text-sm font-semibold">You exceeded your daily limit (5kg). Adding is disabled.</div>
+    <div className="fixed left-1/2 -translate-x-1/2 bottom-6 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300">
+      <div className="bg-white shadow-xl rounded-full px-6 py-3 flex items-center space-x-4 border border-gray-100">
+        <div className="font-bold text-red-500">Limit Reached</div>
+        <div className="text-sm font-medium text-gray-600">{notification}</div>
         <button
-          onClick={() => setVisible(false)}
-          className="ml-2 text-sm text-sprout-teal hover:text-gray-800 font-medium"
+          onClick={() => dispatch(setNotification(null))}
+          className="ml-2 text-sm text-gray-400 hover:text-gray-800 font-medium transition-colors"
         >
           Close
         </button>

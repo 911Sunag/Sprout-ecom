@@ -11,11 +11,13 @@ interface CartItem {
 interface CartState {
   items: CartItem[];
   totalItems: number;
+  notification: string | null;
 }
 
 const initialState: CartState = {
   items: [],
   totalItems: 0,
+  notification: null,
 };
 
 const cartSlice = createSlice({
@@ -24,7 +26,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<{ id: number; name: string; price: number; image: string }>) => {
       const existingItem = state.items.find(item => item.id === action.payload.id);
-      
+
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -33,7 +35,7 @@ const cartSlice = createSlice({
           quantity: 1,
         });
       }
-      
+
       state.totalItems = state.items.reduce((sum, item) => sum + item.quantity, 0);
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
@@ -51,8 +53,11 @@ const cartSlice = createSlice({
       state.items = [];
       state.totalItems = 0;
     },
+    setNotification: (state, action: PayloadAction<string | null>) => {
+      state.notification = action.payload;
+    },
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, updateQuantity, clearCart, setNotification } = cartSlice.actions;
 export default cartSlice.reducer;

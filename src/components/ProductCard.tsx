@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart, updateQuantity } from "../store/cartSlice";
+import { addToCart, removeFromCart, updateQuantity, setNotification } from "../store/cartSlice";
 import type { RootState } from "../store/store";
 
 interface ProductCardProps {
@@ -51,7 +51,10 @@ const ProductCard = ({
   });
 
   const handleIncrement = () => {
-    if (disableAdd) return;
+    if (disableAdd) {
+      dispatch(setNotification("You cannot exceed the 5kg daily limit."));
+      return;
+    }
     dispatch(addToCart({ id, name, price, image }));
   };
 
@@ -113,8 +116,7 @@ const ProductCard = ({
           {quantity === 0 ? (
             <button
               onClick={handleIncrement}
-              disabled={disableAdd}
-              className={`group/btn flex items-center gap-2 border border-gray-200 rounded-xl px-2 py-1.5 text-xs font-bold text-gray-700 hover:border-teal-500 hover:text-teal-600 hover:shadow-sm transition-all ${disableAdd ? "opacity-50 cursor-not-allowed" : "active:scale-95"}`}
+              className={`group/btn flex items-center gap-2 border border-gray-200 rounded-xl px-2 py-1.5 text-xs font-bold text-gray-700 hover:border-teal-500 hover:text-teal-600 hover:shadow-sm transition-all ${disableAdd ? "opacity-50" : "active:scale-95"}`}
             >
               Add <span className="text-base leading-none font-medium">+</span>
             </button>
@@ -122,7 +124,7 @@ const ProductCard = ({
             <div className="flex items-center border border-teal-600 rounded-xl overflow-hidden h-8">
               <button onClick={handleDecrement} className="px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center">-</button>
               <span className="px-1 text-xs font-bold min-w-[20px] text-center">{quantity}</span>
-              <button onClick={handleIncrement} disabled={disableAdd} className="px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center">+</button>
+              <button onClick={handleIncrement} className={`px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center ${disableAdd ? "opacity-50" : ""}`}>+</button>
             </div>
           )}
 
