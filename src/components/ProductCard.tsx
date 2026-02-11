@@ -33,7 +33,6 @@ const ProductCard = ({
     const cart = state.cart.items;
     const products = state.products.items;
 
-    // Calculate total weight in grams
     const totalGrams = cart.reduce((sum, it) => {
       const prod = products.find((p) => p.id === it.id);
       if (!prod) return sum;
@@ -43,7 +42,12 @@ const ProductCard = ({
       return sum + weight * it.quantity;
     }, 0);
 
-    return totalGrams / 1000 > 3; // Disable if total > 3kg
+    // Calculate weight of current item
+    const currentItemUnit = unit?.toLowerCase().trim() || "";
+    const currentItemNum = parseFloat(currentItemUnit.replace(/[^0-9.]/g, "")) || 0;
+    const currentItemWeight = currentItemUnit.includes("kg") ? currentItemNum * 1000 : currentItemNum;
+
+    return (totalGrams + currentItemWeight) / 1000 > 5; // Disable if adding this item exceeds 5kg
   });
 
   const handleIncrement = () => {

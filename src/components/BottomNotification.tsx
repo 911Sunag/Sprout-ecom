@@ -24,7 +24,7 @@ const BottomNotification = () => {
     }, 0);
 
     const totalKg = totalGrams / 1000;
-    setVisible(totalKg > 3);
+    setVisible(totalKg > 5);
   }, [cartItems, products]);
 
   if (!visible) return null;
@@ -32,11 +32,11 @@ const BottomNotification = () => {
   return (
     <div className="fixed left-1/2 -translate-x-1/2 bottom-6 z-50">
       <div className="bg-white shadow-lg rounded-full px-5 py-3 flex items-center space-x-4">
-        <div className="font-semibold">Daily limit reached</div>
-        <div className="text-sm">You exceeded your daily limit (3kg). Adding is disabled.</div>
+        <div className="font-bold text-sprout-red">Daily limit reached</div>
+        <div className="text-sm font-semibold">You exceeded your daily limit (5kg). Adding is disabled.</div>
         <button
           onClick={() => setVisible(false)}
-          className="ml-2 text-sm text-gray-500 hover:text-gray-800"
+          className="ml-2 text-sm text-sprout-teal hover:text-gray-800 font-medium"
         >
           Close
         </button>

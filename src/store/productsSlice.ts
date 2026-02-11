@@ -14,16 +14,23 @@ interface Product {
 
 interface ProductsState {
   items: Product[];
+  searchTerm: string;
 }
 
 const initialState: ProductsState = {
   items: productsData,
+  searchTerm: '',
 };
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    setSearchTerm: (state, action) => {
+      state.searchTerm = action.payload;
+    },
+  },
 });
 
+export const { setSearchTerm } = productsSlice.actions;
 export default productsSlice.reducer;
