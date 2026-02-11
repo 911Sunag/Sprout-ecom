@@ -2,181 +2,241 @@
   {
     "id": 1,
     "name": "Apple",
-    "image": "apple.png",
+    "image": "apple.webp",
     "price": 5.4,
     "unit": "500g",
     "rating": 4.9,
-    "onSale": false
+    "onSale": false,
+    "description": "Fresh and crispy red apples, rich in fiber and antioxidants for a healthy snack."
   },
   {
     "id": 2,
-    "name": "Berry",
-    "image": "berry.png",
+    "name": "Plum",
+    "image": "plum.webp",
     "price": 6.2,
     "unit": "400g",
     "rating": 4.7,
-    "onSale": false
+    "onSale": false,
+    "description": "Sweet and tangy berries widely used in baking, beverages, and desserts."
   },
   {
     "id": 3,
     "name": "Black Grape",
-    "image": "black graoe.png",
+    "image": "black graoe.webp",
     "price": 7.5,
     "unit": "600g",
     "rating": 4.8,
-    "onSale": true
+    "onSale": true,
+    "description": "Juicy black grapes with a rich sweet flavor, perfect for snacking or salads."
   },
   {
     "id": 4,
     "name": "Blackberry",
-    "image": "blckberry.png",
+    "image": "blckberry.webp",
     "price": 7.99,
     "unit": "500g",
     "rating": 4.9,
-    "onSale": true
+    "onSale": true,
+    "description": "Plump and juicy blackberries packed with vitamins and a delicious tart taste."
   },
   {
     "id": 5,
     "name": "Blueberry",
-    "image": "bluebrrynobg.png",
+    "image": "bluebrrynobg.webp",
     "price": 8.5,
     "unit": "400g",
     "rating": 4.9,
-    "onSale": false
+    "onSale": false,
+    "description": "Antioxidant-rich blueberries that are great for smoothies, oatmeal, and baking."
   },
   {
     "id": 6,
     "name": "Cherry",
-    "image": "cherry.png",
+    "image": "cherry.webp",
     "price": 9.0,
     "unit": "500g",
     "rating": 4.8,
-    "onSale": false
+    "onSale": false,
+    "description": "Fresh red cherries with a perfect balance of sweetness and tartness."
   },
   {
     "id": 7,
     "name": "Grapes",
-    "image": "grapes.png",
+    "image": "grapes.webp",
     "price": 6.8,
     "unit": "700g",
     "rating": 4.7,
-    "onSale": false
+    "onSale": false,
+    "description": "Refreshing green grapes with a crisp texture and naturally sweet burst of flavor."
   },
   {
     "id": 8,
     "name": "Guava",
-    "image": "guvava.png",
+    "image": "guvava.webp",
     "price": 4.5,
     "unit": "500g",
     "rating": 4.6,
-    "onSale": true
+    "onSale": true,
+    "description": "Tropical guavas with pink flesh, offering a unique sweet and fragrant taste."
   },
   {
     "id": 9,
     "name": "Kiwi",
-    "image": "kiwi.png",
+    "image": "kiwi.webp",
     "price": 7.2,
     "unit": "400g",
     "rating": 4.8,
-    "onSale": false
+    "onSale": false,
+    "description": "Tangy and sweet kiwis loaded with Vitamin C for a refreshing energy boost."
   },
   {
     "id": 10,
     "name": "Lemon",
-    "image": "lemon.png",
+    "image": "lemon.webp",
     "price": 3.5,
     "unit": "500g",
     "rating": 4.5,
-    "onSale": false
+    "onSale": false,
+    "description": "Zesty yellow lemons perfect for adding a citrus kick to drinks and dishes."
   },
   {
     "id": 11,
     "name": "Mango",
-    "image": "mango.png",
+    "image": "mango.webp",
     "price": 8.99,
     "unit": "600g",
     "rating": 4.9,
-    "onSale": false
+    "onSale": false,
+    "description": "The king of fruits, sweet and juicy mangoes with a rich tropical aroma."
   },
   {
     "id": 12,
     "name": "Orange",
-    "image": "orange.png",
+    "image": "orange.webp",
     "price": 5.8,
     "unit": "500g",
     "rating": 4.7,
-    "onSale": false
+    "onSale": false,
+    "description": "Juicy citrus oranges packed with immunity-boosting Vitamin C and freshness."
   },
   {
     "id": 13,
     "name": "Peaches",
-    "image": "peaches.png",
+    "image": "peaches.webp",
     "price": 6.5,
     "unit": "500g",
     "rating": 4.8,
-    "onSale": false
+    "onSale": false,
+    "description": "Soft and fuzzy peaches with a succulent sweet flesh and delicate floral scent."
   },
   {
     "id": 14,
     "name": "Red Berry",
-    "image": "redberry.png",
+    "image": "redberry.webp",
     "price": 7.3,
     "unit": "400g",
     "rating": 4.8,
-    "onSale": false
+    "onSale": false,
+    "description": "A mix of wild red berries offering a tart flavor profile for adventurous palates."
   },
   {
     "id": 15,
     "name": "Strawberry",
-    "image": "strawwberry.png",
+    "image": "strawwberry.webp",
     "price": 7.99,
     "unit": "500g",
     "rating": 4.9,
-    "onSale": true
+    "onSale": true,
+    "description": "Classic red strawberries known for their bright color and sweet, juicy taste."
   },
   {
     "id": 16,
     "name": "Tomato",
-    "image": "tomato.png",
+    "image": "tomato.webp",
     "price": 4.2,
     "unit": "500g",
     "rating": 4.6,
-    "onSale": false
+    "onSale": false,
+    "description": "Ripe red tomatoes, a kitchen staple essential for salads, sauces, and cooking."
   },
   {
     "id": 17,
     "name": "Watermelon",
-    "image": "watermelonn.png",
+    "image": "watermelonn.webp",
     "price": 12.5,
     "unit": "5kg",
     "rating": 4.9,
-    "onSale": false
+    "onSale": false,
+    "description": "Hydrating and sweet watermelon, the ultimate refreshing treat for hot days."
   },
   {
     "id": 18,
     "name": "pomegranate",
-    "image": "pomo.png",
+    "image": "pomo.webp",
     "price": 10.5,
     "unit": "2.5kg",
     "rating": 4.9,
-    "onSale": true
+    "onSale": true,
+    "description": "Nutrient-packed pomegranates with ruby-red arils bursting with sweet tart juice."
   },
   {
     "id": 19,
     "name": "pineapple",
-    "image": "pineapple.png",
+    "image": "pineapple.webp",
     "price": 15.5,
     "unit": "5kg",
     "rating": 4.9,
-    "onSale": false
+    "onSale": false,
+    "description": "Tropical pineapples with a golden interior and a perfect mix of sweet and sour."
   },
   {
     "id": 20,
     "name": "Dragon fruit",
-    "image": "dragon-fruit.png",
+    "image": "dragon-fruit.webp",
     "price": 8.5,
     "unit": "2kg",
     "rating": 4.8,
-    "onSale": true
+    "onSale": true,
+    "description": "Exotic dragon fruit with a stunning appearance and a mild, slightly sweet flavor."
+  },
+  {
+    "id": 21,
+    "name": "Papaya",
+    "image": "papaya.webp",
+    "price": 6.9,
+    "unit": "1kg",
+    "rating": 4.7,
+    "onSale": false,
+    "description": "Sweet and soft papayas with vibrant orange flesh, rich in digestive enzymes and Vitamin A."
+  },
+  {
+    "id": 22,
+    "name": "Coconut",
+    "image": "coconut.webp",
+    "price": 5.6,
+    "unit": "500g",
+    "rating": 4.6,
+    "onSale": false,
+    "description": "Crisp and juicy pears with a delicate sweetness, perfect for snacking or desserts."
+  },
+  {
+    "id": 23,
+    "name": "Lychee",
+    "image": "Lychee.webp",
+    "price": 6.4,
+    "unit": "500g",
+    "rating": 4.7,
+    "onSale": true,
+    "description": "Sweet and aromatic lychees with a juicy translucent flesh, perfect for refreshing summer treats."
+  },
+  {
+    "id": 24,
+    "name": "Apricot",
+    "image": "Apricot.webp",
+    "price": 7.1,
+    "unit": "400g",
+    "rating": 4.8,
+    "onSale": false,
+    "description": "Tender apricots with a golden-orange hue and a mildly sweet, slightly tangy taste."
   }
 ]

@@ -10,6 +10,7 @@ interface ProductCardProps {
   unit?: string;
   rating?: number;
   onSale?: boolean;
+  description?: string;
 }
 
 const ProductCard = ({
@@ -20,30 +21,30 @@ const ProductCard = ({
   unit = "500g",
   rating = 4.9,
   onSale = false,
+  description = "",
 }: ProductCardProps) => {
   const dispatch = useDispatch();
-  const cart = useSelector((state: RootState) => state.cart.items);
-  const products = useSelector((state: RootState) => state.products.items);
-  const cartItem = cart.find(i => i.id === id);
-  const quantity = cartItem?.quantity ?? 0;
 
-  const parseToGrams = (unit?: string) => {
-    if (!unit) return 0;
-    const u = unit.toLowerCase().trim();
-    const num = parseFloat(u.replace(/[^0-9.]/g, '')) || 0;
-    if (u.includes('kg')) return num * 1000;
-    return num; // assume grams
-  };
+  const quantity = useSelector((state: RootState) =>
+    state.cart.items.find((i) => i.id === id)?.quantity ?? 0
+  );
 
-  const totalGrams = cart.reduce((sum, it) => {
-    const prod = products.find(p => p.id === it.id);
-    if (!prod) return sum;
-    const grams = parseToGrams(prod.unit);
-    return sum + grams * it.quantity;
-  }, 0);
+  const disableAdd = useSelector((state: RootState) => {
+    const cart = state.cart.items;
+    const products = state.products.items;
 
-  const totalKg = totalGrams / 1000;
-  const disableAdd = totalKg > 3;
+    // Calculate total weight in grams
+    const totalGrams = cart.reduce((sum, it) => {
+      const prod = products.find((p) => p.id === it.id);
+      if (!prod) return sum;
+      const u = prod.unit?.toLowerCase().trim() || "";
+      const num = parseFloat(u.replace(/[^0-9.]/g, "")) || 0;
+      const weight = u.includes("kg") ? num * 1000 : num;
+      return sum + weight * it.quantity;
+    }, 0);
+
+    return totalGrams / 1000 > 3; // Disable if total > 3kg
+  });
 
   const handleIncrement = () => {
     if (disableAdd) return;
@@ -58,59 +59,79 @@ const ProductCard = ({
     }
   };
 
+  // Mocking original price for "On Sale" items for visual fidelity
+  const originalPrice = onSale ? (price * 1.5).toFixed(2) : null;
+
   return (
-    <div
-      className="relative w-60 h-80 rounded-2xl overflow-hidden shadow-md font-pro bg-cover bg-center"
-      style={{ backgroundImage: `url(${new URL(`../assets/${image}`, import.meta.url).href})` }}
-    >
-      <div className="absolute inset-0 bg-black/25" />
+    <div className="relative mt-12 w-full max-w-[250px] flex flex-col items-center group h-[250px]">
+      {/* Image Circle - Popping out */}
+      <div className="absolute -top-12 left-5 z-20 w-28 h-28 rounded-full shadow-lg bg-white p-1 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+        <img
+          src={new URL(`../assets/${image}`, import.meta.url).href}
+          alt={name}
+          loading="lazy"
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
 
-      <div className="relative z-10 h-full p-2 flex flex-col justify-between text-white">
-        {/* Top */}
-        <div className="flex justify-between items-start">
+      {/* Card Content */}
+      <div className="w-full bg-white rounded-[2rem] shadow-sm hover:shadow-md transition-shadow pt-16 pb-4 px-5 relative h-[260px] flex flex-col justify-between">
+
+        {/* Top Right Stats/Badges - Only Sale now */}
+        <div className="absolute top-4 right-4 flex flex-col items-end gap-2">
           {onSale && (
-            <span className="bg-red-500 text-xs px-2 py-0.5 rounded-full">ON SALE</span>
+            <div className="bg-red-400 text-white text-[10px] font-bold px-2 py-1 rounded-md transform rotate-[-5deg] shadow-sm uppercase tracking-wide">
+              On Sale
+            </div>
           )}
-
-          <div className="bg-white/90 text-black text-sm px-2 py-0.5 rounded-full shadow">⭐ {rating}</div>
         </div>
 
-        {/* Bottom */}
-        <div className="bg-white text-black rounded-xl p-3">
-          <p className="font-semibold text-sm leading-tight">{name}</p>
-
-          <div className="flex items-center justify-between mt-3">
-            {quantity === 0 ? (
-              <button
-                onClick={handleIncrement}
-                disabled={disableAdd}
-                className={`border rounded-lg px-3 py-1 text-sm font-medium transition ${disableAdd ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/10'}`}
-              >
-                Add +
-              </button>
-            ) : (
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={handleDecrement}
-                  className="border rounded-lg px-3 py-1 text-sm font-medium hover:bg-black/10 transition"
-                >
-                  -
-                </button>
-                <div className="px-3 py-1 border rounded-lg">{quantity}</div>
-                <button
-                  onClick={handleIncrement}
-                  disabled={disableAdd}
-                  className={`border rounded-lg px-3 py-1 text-sm font-medium transition ${disableAdd ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/10'}`}
-                >
-                  +
-                </button>
-              </div>
-            )}
-
-            <div className="text-right font-semibold text-sm">
-              <p>${price.toFixed(2)}</p>
-              <p className="text-xs text-black/50">/ {unit}</p>
+        {/* Main Info */}
+        <div className="mt-2 grow flex flex-col items-center w-full">
+          {/* Name & Rating */}
+          <div className="flex items-start justify-between gap-2 w-full mb-1">
+            <h3 className="font-bold font-pro text-gray-800 text-lg leading-tight line-clamp-1 max-w-[70%]">
+              {name}
+            </h3>
+            <div className="flex items-center gap-0.5 text-xs font-semibold text-slate-700 bg-gray-100 px-1.5 py-0.5 rounded-md shrink-0">
+              <span className="text-amber-400">★</span> {rating}
             </div>
+          </div>
+
+          <p className="text-gray-500 text-xs text-start w-full line-clamp-3 leading-relaxed h-[3.8rem] overflow-hidden mt-6 font-medium">
+            {description || "Tasty and fresh."}
+          </p>
+        </div>
+
+        {/* Footer: Add Button & Price */}
+        <div className="flex items-center justify-between">
+          {/* Quantity Controls */}
+          {quantity === 0 ? (
+            <button
+              onClick={handleIncrement}
+              disabled={disableAdd}
+              className={`group/btn flex items-center gap-2 border border-gray-200 rounded-xl px-2 py-1.5 text-xs font-bold text-gray-700 hover:border-teal-500 hover:text-teal-600 hover:shadow-sm transition-all ${disableAdd ? "opacity-50 cursor-not-allowed" : "active:scale-95"}`}
+            >
+              Add <span className="text-base leading-none font-medium">+</span>
+            </button>
+          ) : (
+            <div className="flex items-center border border-teal-600 rounded-xl overflow-hidden h-8">
+              <button onClick={handleDecrement} className="px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center">-</button>
+              <span className="px-1 text-xs font-bold min-w-[20px] text-center">{quantity}</span>
+              <button onClick={handleIncrement} disabled={disableAdd} className="px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center">+</button>
+            </div>
+          )}
+
+          {/* Price */}
+          <div className="text-right flex flex-col items-end">
+            {onSale && originalPrice && (
+              <span className="text-[10px] text-gray-400 line-through decoration-red-400 decoration-1 font-medium leading-none mb-0.5">{originalPrice}</span>
+            )}
+            <div className={`font-bold leading-none ${onSale ? "text-red-500" : "text-gray-900"}`}>
+              <span className="text-[10px] font-normal align-top">$</span>
+              <span className="text-base">{price.toFixed(2)}</span>
+            </div>
+            <span className="text-[9px] text-gray-400 font-medium leading-none mt-0.5">/ {unit}</span>
           </div>
         </div>
       </div>

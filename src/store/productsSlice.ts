@@ -9,6 +9,7 @@ interface Product {
   unit: string;
   rating: number;
   onSale: boolean;
+  description?: string;
 }
 
 interface ProductsState {

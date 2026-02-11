@@ -8,9 +8,9 @@ const Header = () => {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <main className='min-h-screen'>
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 space-y-5 p-0'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 space-y-5 p-0'>
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -21,6 +21,7 @@ const Header = () => {
               unit={product.unit}
               rating={product.rating}
               onSale={product.onSale}
+              description={product.description}
             />
           ))}
         </div>
