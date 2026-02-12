@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import footerIcon from "../assets/logooo.png";
 import { useForm } from "react-hook-form";
+import Creater from "./Creater";
 
 type NewsletterForm = {
   email: string;
@@ -85,6 +86,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
+
   );
 };
 

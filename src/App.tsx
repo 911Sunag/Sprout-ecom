@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import BottomNotification from "./components/BottomNotification"
+import Creater from "./components/Creater"
 
 const Header = lazy(() => import("./components/Header"))
 const CheckoutScreen = lazy(() => import("./components/CheckoutScreen"))
@@ -19,6 +20,7 @@ function App() {
         </Routes>
       </Suspense>
       <Footer />
+      <Creater />
     </div>
   )
 }
