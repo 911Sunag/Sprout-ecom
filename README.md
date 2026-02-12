@@ -1,31 +1,36 @@
 # React + TypeScript + Vite
 
-
-# Sprout - Organic Grocery & Eco-Friendly Market
-
+# 🌱 Sprout - Organic Grocery & Eco-Friendly Market
 
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [Features](#Features)
   - [Screenshot](#screenshot)
-  - [Screenshot(Mobile)](#screenshot(Mobile))
   - [Demo Link](#link)
   - [Built with](#built-with)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
+  - [Future Enhancements](#FutureEnhancements)
+  - [Installation & Setup](#Installation&Setup)
+  - [🤝 Contributing](#Contributing)
+  - [Author](#author)
 
 ## Overview
-Interactive rating component
-### The challenge
 
-Users should be able to:
+A modern and responsive e-commerce web application built with React, TypeScript, Redux, and Tailwind CSS.Sprout-ecom provides a smooth shopping experience with product search, cart management, and order confirmation.
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Select and submit a number rating
-- See the "Thank you" card state after submitting a rating
+### ✨ Features
+
+- 🔍 Product search functionality
+
+- 🛒 Add to cart
+
+- 📦 Cart preview before purchase
+
+- ✅ Order confirmation after purchase
+
+- 📱 Fully responsive design
+
+- ⚡ Fast and optimized UI
 
 ### Screenshot
 
@@ -37,7 +42,7 @@ Users should be able to:
 ![](./Screenshots/CheckOut.png)
 ![](./Screenshots/OrderConfiramation.png)
 
-### Screenshot(Mobile) 
+### Screenshot(Mobile)
 
 ![](./Screenshots/MobileS1.png)
 ![](./Screenshots/MobileCart.png)
@@ -48,13 +53,52 @@ Users should be able to:
 
 - URL: (https://sprout-ecom.vercel.app/)
 
-### Built with
+### 🛠️ Tech Stack
 
+- ⚛️ React JS – Component-based UI development
+
+- 🟦 TypeScript – Type safety and better developer experience
+
+- 🎨 Tailwind CSS – Utility-first styling
+
+- 🔄 Redux – Global state management
+
+- 🧭 React Router DOM – Client-side routing
+
+- 📝 React Hook Form – Form handling & validation
+
+- ▲ Vercel – Deployment and hosting
+
+## 📌 Future Enhancements
+
+I plan to continue improving this project by adding:
+
+🛍️ More products
+
+🎯 Product filtering functionality
+
+🗂️ Category-based browsing
+
+🔐 User authentication (Login & Signup)
+
+👤 User profile dashboard
+
+📦 Order history tracking
+
+💳 Payment gateway integration
+
+## 📂 Installation & Setup
+
+- git clone https://github.com/911Sunag/Sprout-ecom.git
+- cd Sprout-ecom
+- npm install
+- npm run build
+
+## 🤝 Contributing
+
+Contributions, suggestions, and feedback are always welcome!
+Feel free to fork the repository and submit a pull request.
 
 ## Author
 
-- @911Sunag
-
-## Acknowledgments
-
-
+- @Sunag Arigala
