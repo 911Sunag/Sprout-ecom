@@ -76,6 +76,8 @@ const ProductCard = ({
         <img
           src={new URL(`../assets/${image}`, import.meta.url).href}
           alt={name}
+          width={112}
+          height={112}
           loading="lazy"
           className="w-full h-full object-cover rounded-full"
         />
@@ -97,7 +99,7 @@ const ProductCard = ({
         <div className="mt-2 grow flex flex-col items-center w-full">
           {/* Name & Rating */}
           <div className="flex items-start justify-between gap-2 w-full mb-1">
-            <h3 className="font-bold font-pro text-gray-800 text-lg leading-tight line-clamp-1 max-w-[70%]">
+            <h3 className="font-bold font-pro text-gray-800 text-lg leading-tight line-clamp-1 max-w-[70%]" title={name}>
               {name}
             </h3>
             <div className="flex items-center gap-0.5 text-xs font-semibold text-slate-700 bg-gray-100 px-1.5 py-0.5 rounded-md shrink-0">
@@ -116,15 +118,24 @@ const ProductCard = ({
           {quantity === 0 ? (
             <button
               onClick={handleIncrement}
+              aria-label={`Add ${name} to cart`}
               className={`group/btn flex items-center gap-2 border border-gray-200 rounded-xl px-2 py-1.5 text-xs font-bold text-gray-700 hover:border-teal-500 hover:text-teal-600 hover:shadow-sm transition-all ${disableAdd ? "opacity-50" : "active:scale-95"}`}
             >
               Add <span className="text-base leading-none font-medium">+</span>
             </button>
           ) : (
             <div className="flex items-center border border-teal-600 rounded-xl overflow-hidden h-8">
-              <button onClick={handleDecrement} className="px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center">-</button>
+              <button
+                onClick={handleDecrement}
+                aria-label="Decrease quantity"
+                className="px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center"
+              >-</button>
               <span className="px-1 text-xs font-bold min-w-[20px] text-center">{quantity}</span>
-              <button onClick={handleIncrement} className={`px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center ${disableAdd ? "opacity-50" : ""}`}>+</button>
+              <button
+                onClick={handleIncrement}
+                aria-label="Increase quantity"
+                className={`px-2 h-full hover:bg-gray-50 text-gray-600 transition flex items-center ${disableAdd ? "opacity-50" : ""}`}
+              >+</button>
             </div>
           )}
 

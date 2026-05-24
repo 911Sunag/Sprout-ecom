@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <footer className="px-5 flex flex-col md:flex-row items-start md:items-center justify-between py-10 gap-10 md:gap-0">
       <div className="space-y-2.5">
-        <img src={footerIcon} alt="icon" width={75} />
+        <img src={footerIcon} alt="Sprout Logo" width={75} height={75} />
         <p className="text-[12px] font-semibold text-sprout-teal">
           Eco Food Market <br /> SPROUT Good Ltd.
         </p>
@@ -64,6 +64,7 @@ const Footer = () => {
             <input
               type="text"
               placeholder="Your Email"
+              aria-label="Email for newsletter"
               className={`bg-white p-3 text-sm font-medium rounded-l-lg outline-none w-full md:w-64 border-r-0 focus:ring-1 ${errors.email ? 'focus:ring-red-500' : 'focus:ring-black/10'}`}
               {...register("email", {
                 required: "Email is required",
@@ -73,7 +74,7 @@ const Footer = () => {
                 },
               })}
             />
-            <button type="submit" className="rounded-r-lg bg-black px-4 flex items-center justify-center cursor-pointer hover:bg-black/75 transition-colors">
+            <button type="submit" aria-label="Subscribe" className="rounded-r-lg bg-black px-4 flex items-center justify-center cursor-pointer hover:bg-black/75 transition-colors">
               <Check size={18} className="text-white" />
             </button>
           </div>

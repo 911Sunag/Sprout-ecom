@@ -1,7 +1,9 @@
 import ProductCard from './ProductCard'
 import { useSelector } from 'react-redux'
 import type { RootState } from '../store/store'
-import Promotions from './Promotions'
+import { lazy, Suspense } from 'react'
+
+const Promotions = lazy(() => import('./Promotions'))
 
 const Header = () => {
   const products = useSelector((state: RootState) => state.products.items);
@@ -28,7 +30,9 @@ const Header = () => {
           />
         ))}
       </div>
-      <Promotions />
+      <Suspense fallback={<div className="h-64 bg-gray-100 rounded-xl animate-pulse mt-10"></div>}>
+        <Promotions />
+      </Suspense>
     </main>
   )
 }
